@@ -4,10 +4,12 @@ import type React from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Calendar } from "lucide-react"
+import type { Metadata } from "next"
+import GoogleAnalytics from "./components/GoogleAnalytics"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Ehtisham Sadiq - Senior AI/ML Engineer",
   description:
     "Portfolio of Ehtisham Sadiq, a Senior AI/ML Engineer specializing in machine learning applications and data engineering.",
@@ -21,6 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="fixed top-6 right-6 z-50 flex items-center gap-4">
