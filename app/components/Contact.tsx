@@ -583,7 +583,7 @@ export default function Contact() {
               <h3 className="text-2xl font-semibold mb-6 dark:text-white">Contact Information</h3>
               <div className="space-y-6">
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:ehtisham.selfwork@gmail.com"
                   className="flex items-center p-4 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors duration-300"
                 >
                   <div className="p-3 bg-indigo-100 dark:bg-indigo-800 rounded-full mr-4">
@@ -595,7 +595,7 @@ export default function Contact() {
                   </div>
                 </a>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+923054661042"
                   className="flex items-center p-4 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors duration-300"
                 >
                   <div className="p-3 bg-indigo-100 dark:bg-indigo-800 rounded-full mr-4">
@@ -603,7 +603,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium dark:text-white">Phone</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">+1 (234) 567-890</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">+92 (305) 4661042</p>
                   </div>
                 </a>
                 <div className="flex items-center p-4 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg">
@@ -612,7 +612,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-medium dark:text-white">Location</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">New York, NY</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Lahore, Pakistan</p>
                   </div>
                 </div>
               </div>

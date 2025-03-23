@@ -1,86 +1,144 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Brain, Database, Cloud, Cpu } from "lucide-react"
-import Image from "next/image"
+import { Users, Award, Code2, Brain, Cpu, Star } from "lucide-react"
+import AnimatedSectionHeader from "./AnimatedSectionHeader"
+
+const stats = [
+  {
+    icon: Users,
+    value: "20+",
+    label: "Happy Clients",
+    description: "Across Global Companies"
+  },
+  {
+    icon: Award,
+    value: "15+",
+    label: "ML Models Deployed",
+    description: "In Production"
+  },
+  {
+    icon: Code2,
+    value: "50K+",
+    label: "Lines of Code",
+    description: "Clean & Efficient"
+  },
+  {
+    icon: Star,
+    value: "98%",
+    label: "Success Rate",
+    description: "In Project Delivery"
+  }
+]
 
 export default function About() {
-  const skills = [
-    {
-      icon: <Brain className="w-8 h-8 text-indigo-500" />,
-      title: "Machine Learning",
-      description: "Neural Networks, Scikit-learn, XGBoost",
-    },
-    {
-      icon: <Cpu className="w-8 h-8 text-purple-500" />,
-      title: "NLP",
-      description: "BERT, LangChain, LLMs, RAG",
-    },
-    {
-      icon: <Database className="w-8 h-8 text-blue-500" />,
-      title: "Data Engineering",
-      description: "ETL, Prefect, Apache Spark",
-    },
-    {
-      icon: <Cloud className="w-8 h-8 text-teal-500" />,
-      title: "Cloud Platforms",
-      description: "AWS, GCP, SageMaker",
-    },
-  ]
-
   return (
-    <section
-      id="about"
-      className="py-20 bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-gray-900 dark:to-indigo-900 transition-colors duration-300 overflow-hidden relative"
-    >
+    <section id="about" className="py-20 relative overflow-hidden">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-indigo-50/50 dark:from-gray-900 dark:to-indigo-900/30"></div>
+
       <div className="container mx-auto px-6 relative z-10">
-        <motion.h2
-          className="text-4xl font-bold mb-8 text-center dark:text-white"
+        <AnimatedSectionHeader title="About Me" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Main Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="prose prose-lg dark:prose-invert max-w-none">
+              <h3 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-4">
+                Transforming Ideas into Intelligent Solutions
+              </h3>
+              
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                As a passionate AI/ML Engineer with over 5 years of experience, I specialize in turning complex data challenges into scalable AI solutions. My expertise spans the entire machine learning lifecycle, from data engineering to model deployment.
+              </p>
+
+              <div className="flex items-center gap-2 mb-4">
+                <Brain className="w-5 h-5 text-indigo-500" />
+                <span className="font-semibold">Core Focus Areas:</span>
+              </div>
+              
+              <ul className="list-none space-y-3">
+                <li className="flex items-start gap-2">
+                  <Cpu className="w-5 h-5 text-indigo-500 mt-1" />
+                  <span>Building and optimizing machine learning models for real-world applications</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Cpu className="w-5 h-5 text-indigo-500 mt-1" />
+                  <span>Developing robust ETL pipelines and data processing workflows</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Cpu className="w-5 h-5 text-indigo-500 mt-1" />
+                  <span>Implementing NLP solutions and conversational AI systems</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Cpu className="w-5 h-5 text-indigo-500 mt-1" />
+                  <span>Cloud-native ML infrastructure and MLOps practices</span>
+                </li>
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Stats Grid */}
+          <div className="grid grid-cols-2 gap-6">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <stat.icon className="w-6 h-6 text-indigo-500" />
+                  <h4 className="font-semibold text-gray-900 dark:text-white">{stat.label}</h4>
+                </div>
+                <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">
+                  {stat.value}
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{stat.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Achievements Section */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16 p-6 bg-indigo-50 dark:bg-indigo-900/30 rounded-xl"
         >
-          About Me
-        </motion.h2>
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <motion.div
-            className="md:w-1/2 mb-8 md:mb-0"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              As a passionate AI/ML Engineer, I specialize in designing, deploying, and optimizing machine learning
-              applications. With a strong foundation in ETL workflows, feature engineering, NLP, and predictive
-              analytics, I create scalable AI solutions that deliver exceptional business impact.
-            </p>
-            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-              My expertise extends to cloud platforms like AWS and GCP, and I'm proficient in using Docker, Kubernetes,
-              and MLOps practices. I'm committed to leading cross-functional teams and staying up-to-date with the
-              latest industry trends to deliver cutting-edge AI solutions.
-            </p>
-          </motion.div>
-          <motion.div
-            className="md:w-1/2 grid grid-cols-2 gap-6"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            {skills.map((skill, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                {skill.icon}
-                <h3 className="text-xl font-semibold mt-4 mb-2 dark:text-white">{skill.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{skill.description}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-      <div className="absolute bottom-0 right-0 w-64 h-64 -mb-32 -mr-32 opacity-20">
-        <Image src="/placeholder.svg?height=256&width=256" alt="Decorative background" width={256} height={256} />
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+            Recent Achievements
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="flex items-start gap-3">
+              <Award className="w-5 h-5 text-indigo-500 mt-1" />
+              <p className="text-gray-600 dark:text-gray-300">
+                Reduced model inference time by 40% through optimization
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <Award className="w-5 h-5 text-indigo-500 mt-1" />
+              <p className="text-gray-600 dark:text-gray-300">
+                Implemented MLOps practices reducing deployment time by 60%
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <Award className="w-5 h-5 text-indigo-500 mt-1" />
+              <p className="text-gray-600 dark:text-gray-300">
+                Developed AI solutions saving clients $500K annually
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

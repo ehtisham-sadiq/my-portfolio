@@ -7,6 +7,8 @@ import Education from "./components/Education"
 import Contact from "./components/Contact"
 import FloatingNav from "./components/floating-nav"
 import Achievements from "./components/Achievements"
+import Testimonials from "./components/Testimonials"
+import FeaturedProjects from "./components/FeaturedProjects"
 
 export default function Home() {
   return (
@@ -17,7 +19,9 @@ export default function Home() {
       <Experience />
       <Skills />
       <Services />
+      <FeaturedProjects />
       <Achievements />
+      <Testimonials />
       <Education />
       <Contact />
     </main>

@@ -25,7 +25,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="fixed top-6 right-6 z-50 flex items-center gap-4">
             <a
-              href="https://calendly.com/your-calendly-username/30min"
+              href="https://calendly.com/ehtisham-selfwork/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 px-5 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border-2 border-indigo-400 dark:border-indigo-700 animate-pulse hover:animate-none"
