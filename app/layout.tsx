@@ -6,6 +6,7 @@ import { ModeToggle } from "@/components/mode-toggle"
 import { Calendar } from "lucide-react"
 import type { Metadata } from "next"
 import GoogleAnalytics from "./components/GoogleAnalytics"
+import Header from "./components/Header"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,11 +23,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <head>
         <GoogleAnalytics />
       </head>
       <body className={inter.className}>
+        <Header />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="fixed top-6 right-6 z-50 flex items-center gap-4">
             <a

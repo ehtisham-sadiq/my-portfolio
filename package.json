@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@emotion/is-prop-valid": "latest",
     "@google/generative-ai": "^0.24.0",
     "@hookform/resolvers": "latest",

@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Github, Linkedin, Mail, ArrowDown, Sparkles, Brain } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowDown, Sparkles, Brain, Zap } from "lucide-react"
 import { motion } from "framer-motion"
 import ChatButton from "./ChatButton"
 
@@ -133,10 +133,10 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="flex gap-4 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <motion.button
                 onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -145,6 +145,16 @@ export default function Hero() {
               </motion.button>
               
               <ChatButton />
+              
+              <motion.a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Zap className="w-4 h-4" />
+                Hire Me
+              </motion.a>
             </div>
           </motion.div>
 
