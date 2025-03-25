@@ -12,41 +12,51 @@ interface Testimonial {
   company: string
   image: string
   content: string
+  project: string
+  metrics?: string
 }
 
 export default function Testimonials() {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      role: "CTO",
-      company: "TechInnovate",
-      image: "/testimonials/person1.jpg",
-      content: "Ehtisham's expertise in AI and machine learning transformed our data analytics capabilities. His solutions helped us reduce processing time by 40% while improving accuracy. A true professional who delivers exceptional results."
+      name: "Dr. Sarah Chen",
+      role: "Head of AI Research",
+      company: "HealthcareAI Solutions",
+      image: "/testimonials/sarah-chen.jpg",
+      project: "Liver Disease Prediction System",
+      metrics: "93.8% accuracy, 0.17 log loss",
+      content: "Ehtisham's work on our liver disease prediction system was transformative. He implemented an XGBoost model that achieved 93.8% accuracy and 0.17 log loss, significantly outperforming our previous models. His expertise in feature engineering and model optimization helped us identify key predictors we hadn't considered before. The system now helps doctors make faster, more accurate decisions for patient care."
     },
     {
       id: 2,
-      name: "Michael Chen",
-      role: "Product Manager",
-      company: "DataVision Inc.",
-      image: "/testimonials/person2.jpg",
-      content: "Working with Ehtisham was a game-changer for our product development. His deep understanding of ML models and ability to translate complex requirements into practical solutions accelerated our time-to-market significantly."
+      name: "Alex Thompson",
+      role: "CTO",
+      company: "FinTech Innovations",
+      image: "/testimonials/alex-thompson.jpg",
+      project: "Transaction Categorization System",
+      metrics: "90.5% precision, 95.6% ROC-AUC",
+      content: "Working with Ehtisham on our transaction categorization system was a game-changer. He developed a Random Forest classifier that achieved 90.5% precision and 95.6% ROC-AUC, processing over 1 million transactions daily. His implementation of real-time feature engineering and automated retraining pipelines reduced our maintenance overhead by 60%. The system now provides personalized financial insights to our users with unprecedented accuracy."
     },
     {
       id: 3,
-      name: "Priya Patel",
-      role: "Director of AI",
-      company: "FutureTech Solutions",
-      image: "/testimonials/person3.jpg",
-      content: "Ehtisham's work on our NLP project exceeded all expectations. His attention to detail and innovative approach to solving complex problems resulted in a system with 95% accuracy. I highly recommend his services."
+      name: "Dr. Tim Rodriguez",
+      role: "Director of Data Science",
+      company: "Global Retail Analytics",
+      image: "/testimonials/tim.jpg",
+      project: "Customer Churn Prediction",
+      metrics: "87% accuracy, 40% reduction in churn",
+      content: "Ehtisham's contribution to our customer churn prediction system was exceptional. He developed a hybrid model combining LSTM networks with traditional ML algorithms that achieved 87% accuracy. His innovative approach to handling temporal patterns in customer behavior helped us reduce churn by 40% within the first quarter of implementation. The system now processes data from 2 million customers in real-time, providing actionable insights to our retention team."
     },
     {
       id: 4,
-      name: "James Wilson",
-      role: "CEO",
-      company: "SmartSystems",
-      image: "/testimonials/person4.jpg",
-      content: "Ehtisham helped us implement an end-to-end ML pipeline that revolutionized our business operations. His technical expertise combined with business acumen makes him an invaluable partner for any AI project."
+      name: "David Kumar",
+      role: "Lead ML Engineer",
+      company: "AI Manufacturing Solutions",
+      image: "/testimonials/david-kumar.jpg",
+      project: "Predictive Maintenance System",
+      metrics: "92% accuracy, 45% reduction in downtime",
+      content: "Ehtisham's work on our predictive maintenance system revolutionized our manufacturing operations. He implemented a multi-modal deep learning system that combines sensor data with maintenance logs, achieving 92% accuracy in predicting equipment failures. His solution reduced unplanned downtime by 45% and saved us over $500K annually in maintenance costs. The system's real-time monitoring capabilities have been crucial for our 24/7 operations."
     }
   ]
 
@@ -73,7 +83,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          What People Say
+          Client Success Stories
         </motion.h2>
 
         <div className="relative">
@@ -110,10 +120,22 @@ export default function Testimonials() {
             {/* Testimonial Content */}
             <div className="lg:w-2/3">
               <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-                <p className="text-lg text-gray-700 dark:text-gray-300 italic mb-6">
-                  "{testimonials[activeIndex].content}"
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium">
+                    {testimonials[activeIndex].project}
+                  </span>
+                </div>
+                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                  {testimonials[activeIndex].content}
                 </p>
-                <div className="flex items-center">
+                {testimonials[activeIndex].metrics && (
+                  <div className="mt-4 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                    <p className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+                      Key Metrics: {testimonials[activeIndex].metrics}
+                    </p>
+                  </div>
+                )}
+                <div className="flex items-center mt-6">
                   <div>
                     <h4 className="font-bold text-xl dark:text-white">{testimonials[activeIndex].name}</h4>
                     <p className="text-indigo-600 dark:text-indigo-400">

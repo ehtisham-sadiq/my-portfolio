@@ -40,36 +40,38 @@ export default function Contact() {
     setIsError(false);
     
     try {
-      // Configure with your EmailJS service, template and user IDs
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        from_phone: data.phone,
-        project_type: data.projectType,
-        message: data.message,
-        to_email: "ehtisham.selfwork@gmail.com", // Your email here
-        reply_to: data.email,
-      };
-      
+      // Validate client email before sending
+      if (!data.email || !data.email.trim()) {
+        throw new Error("Client email is required");
+      }
+  
       // Send email to you (the developer)
       await emailjs.send(
-        "service_xxxxxxx",  // Your actual EmailJS service ID from the dashboard
-        "template_yyyyyyy", // Your "Portfolio Project Inquiry" template ID
-        templateParams,
-        "public_key_zzzzzzzzzzzzz" // Your public key from Account > API Keys
+        "service_qdwrlav",
+        "template_oh2gli7",
+        {
+          to_email: "ehtisham.selfwork@gmail.com",
+          from_name: "Ehtisham Sadiq", // Corrected to developer's name
+          from_email: data.email,
+          from_phone: data.phone,
+          project_type: data.projectType,
+          message: data.message,
+          reply_to: data.email,
+        },
+        "t3Kaqwu01EuCW3m28"
       );
       
       // Send confirmation email to client
       await emailjs.send(
-        "service_xxxxxxx",  // Same service ID
-        "template_wwwwwww", // Your "Portfolio Client Confirmation" template ID
+        "service_qdwrlav",
+        "template_zquer0l",
         {
-          to_name: data.name,
-          to_email: data.email,
+          email: data.email,
+          name: data.name,
           project_type: data.projectType,
           message: "Thank you for your inquiry! I've received your project details and will get back to you within 24-48 hours."
         },
-        "public_key_zzzzzzzzzzzzz" // Same public key
+        "t3Kaqwu01EuCW3m28"
       );
       
       setIsSuccess(true);
@@ -263,7 +265,7 @@ export default function Contact() {
                     <Mail className="w-6 h-6 mr-3 text-indigo-300 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-lg">Email</h4>
-                      <a href="mailto:your@email.com" className="text-indigo-100 hover:text-white transition-colors">your@email.com</a>
+                      <a href="mailto:your@email.com" className="text-indigo-100 hover:text-white transition-colors">ehtisham.selfwork@gmail.com</a>
                     </div>
                   </div>
                   
@@ -271,7 +273,7 @@ export default function Contact() {
                     <Phone className="w-6 h-6 mr-3 text-indigo-300 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-lg">Phone</h4>
-                      <a href="tel:+12345678901" className="text-indigo-100 hover:text-white transition-colors">+1 (234) 567-8901</a>
+                      <a href="tel:+12345678901" className="text-indigo-100 hover:text-white transition-colors">+92(305) 466-1042</a>
                     </div>
                   </div>
                 </div>
